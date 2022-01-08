@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name><![CDATA[librsvg-overlay]]></name>
+    <description lang="en"><![CDATA[rust-free librsvg overlay]]></description>
+    <homepage>https://github.com/saloniamatteo/librsvg-overlay</homepage>
+    <owner type="person">
+      <email>saloniamatteo@pm.me</email>
+      <name><![CDATA[Matteo Salonia]]></name>
+    </owner>
+    <source type="git">https://github.com/saloniamatteo/librsvg-overlay</source>
+  </repo>
+</repositories>
+

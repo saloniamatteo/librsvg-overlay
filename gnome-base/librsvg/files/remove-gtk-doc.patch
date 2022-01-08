@@ -1,0 +1,67 @@
+Author: saloniamatteo <saloniamatteo@pm.me>
+Date:   Sat Jan 8 17:21:44 2022 +0100
+Subject: [PATCH] Disable GTK-doc
+
+This patch disables everything gtk-doc related.
+
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -23,7 +23,7 @@ if [ "$#" = 0 -a "x$NOCONFIGURE" = "x" ]; then
+ fi
+ 
+ aclocal --install || exit 1
+-gtkdocize --copy || exit 1
++#gtkdocize --copy || exit 1
+ autoreconf --verbose --force --install || exit 1
+ 
+ cd "$olddir"
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -206,7 +206,7 @@ AC_SUBST([BSYMBOLIC_LDFLAG])
+ # Checks for gtk-doc and docbook-tools
+ ##################################################
+
+-GTK_DOC_CHECK([1.13],[--flavour no-tmpl])
++#GTK_DOC_CHECK([1.13],[--flavour no-tmpl])
+
+ AC_SUBST([GLIB_PREFIX],[$($PKG_CONFIG --variable=prefix glib-2.0)])
+ AC_SUBST([GDK_PIXBUF_PREFIX],[$($PKG_CONFIG --variable=prefix gdk-pixbuf-2.0)])
+@@ -296,8 +296,6 @@ librsvg-zip
+ gdk-pixbuf-loader/Makefile
+ tests/Makefile
+ tools/Makefile
+-doc/Makefile
+-doc/version.xml
+ ])
+
+ AC_CONFIG_FILES([librsvg-${RSVG_API_VERSION}.pc:librsvg.pc.in],[],[RSVG_API_VERSION=$RSVG_API_VERSION])
+
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,7 +1,7 @@
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-SUBDIRS = . gdk-pixbuf-loader tests tools doc
++SUBDIRS = . gdk-pixbuf-loader tests tools
+ 
+ NULL =
+ BUILT_SOURCES =
+@@ -166,7 +166,6 @@ EXTRA_DIST =				\
+ 	NEWS				\
+ 	COPYING.LIB 			\
+ 	librsvg-zip.in 			\
+-	gtk-doc.make			\
+ 	Rsvg-2.0-custom.vala		\
+ 	Rsvg-2.0.metadata		\
+ 	rsvg.symbols			\
+@@ -213,8 +212,6 @@ s-enum-types-c: $(headers) Makefile
+ 	&& rm -f tmp-librsvg-enum-types.c \
+ 	&& echo timestamp > $(@F)
+ 
+-DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc
+-
+ if HAVE_INTROSPECTION
+ -include $(INTROSPECTION_MAKEFILE)
+ 
