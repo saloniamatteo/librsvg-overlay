@@ -11,7 +11,7 @@ your apps will still work.
 
 Proof: evince reading a PDF running librsvg from this repository:
 
-![evince](https://raw.githubusercontent.com/saloniamatteo/librsvg-overlay/evince.png)
+![evince](https://raw.githubusercontent.com/saloniamatteo/librsvg-overlay/master/evince.png)
 
 ---
 
