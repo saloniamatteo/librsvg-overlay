@@ -32,4 +32,9 @@ Proceed, then run the following command, to sync the newly added repository, cal
 layman -s librsvg-overlay
 ```
 
+Ensure that, when you search `librsvg` with `emerge -s gnome-base/librsvg::librsvg-overlay`,
+this is the result:
+
+![librsvg](https://raw.githubusercontent.com/saloniamatteo/librsvg-overlay/master/librsvg.png)
+
 Now, you can run `emerge -s gnome-base/librsvg::librsvg-overlay` to install librsvg from this overlay.
